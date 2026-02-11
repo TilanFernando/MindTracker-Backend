@@ -1,0 +1,42 @@
+{
+  "target_col": "ad_stage",
+  "id_col_dropped": null,
+  "numeric_cols": [
+    "age",
+    "education_years",
+    "physical_activity_level",
+    "sleep_hours",
+    "diet_quality",
+    "alcohol_intake",
+    "social_engagement",
+    "cognitive_activity",
+    "bmi",
+    "hypertension",
+    "diabetes",
+    "cardiovascular_disease",
+    "depression_score",
+    "family_history_AD"
+  ],
+  "categorical_cols": [
+    "gender",
+    "smoking_status"
+  ],
+  "class_order": [
+    "MildDemented",
+    "ModerateDemented",
+    "NonDemented",
+    "VeryMildDemented"
+  ],
+  "val_metrics": {
+    "acc": 0.9795555555555555,
+    "macro_precision": 0.9795259559690255,
+    "macro_recall": 0.9795523789055833,
+    "macro_f1": 0.9794947295628459
+  },
+  "test_metrics": {
+    "acc": 0.98,
+    "macro_precision": 0.9801836379140229,
+    "macro_recall": 0.9800059101281264,
+    "macro_f1": 0.9799092521255365
+  }
+}

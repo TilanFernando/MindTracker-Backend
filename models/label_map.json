@@ -1,0 +1,8 @@
+{
+  "class_order": [
+    "MildDemented",
+    "ModerateDemented",
+    "NonDemented",
+    "VeryMildDemented"
+  ]
+}
