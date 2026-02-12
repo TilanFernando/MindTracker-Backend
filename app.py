@@ -10,7 +10,8 @@ from services.mri_inference import load_mri_model, predict_mri
 from services.xai_mri import get_mri_explanation, get_all_mri_heatmaps
 
 app = Flask(__name__)
-CORS(app)
+# Allow CORS from Vercel frontend and localhost for development
+CORS(app, resources={r"/*": {"origins": ["https://mind-tracker-frontend.vercel.app", "http://localhost:5173", "http://localhost:3000"]}})
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'lifestyle_model.pkl')
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), 'models', 'preprocess_config.json')
