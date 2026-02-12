@@ -21,15 +21,16 @@ model = None
 config = None
 mri_model = None
 mri_label_map = None
+mri_error = None
 
 # Load AI models on startup
 def load_resources():
-    global model, config, mri_model, mri_label_map
+    global model, config, mri_model, mri_label_map, mri_error
     try:
         model = joblib.load(MODEL_PATH)
         with open(CONFIG_PATH, 'r') as f:
             config = json.load(f)
-        mri_model = load_mri_model(MRI_MODEL_PATH)
+        mri_model, mri_error = load_mri_model(MRI_MODEL_PATH)
         with open(MRI_LABEL_MAP_PATH, 'r') as f:
             mri_label_map = json.load(f)
         print("Models and configurations loaded successfully.")
@@ -45,7 +46,8 @@ def health():
         "model_loaded": model is not None,
         "config_loaded": config is not None,
         "mri_model_loaded": mri_model is not None,
-        "mri_label_map_loaded": mri_label_map is not None
+        "mri_label_map_loaded": mri_label_map is not None,
+        "mri_error": mri_error
     })
 
 # Main function to handle MRI and Lifestyle prediction

@@ -16,12 +16,13 @@ PREPROCESS = transforms.Compose([
 def load_mri_model(model_path):
     """Loads the MRI model (PyTorch .pt file)."""
     try:
-        model = torch.load(model_path, map_location=torch.device('cpu'))
+        model = torch.load(model_path, map_location=torch.device('cpu'), weights_only=False)
         model.eval()
-        return model
+        return model, None
     except Exception as e:
-        print(f"Error loading MRI model: {e}")
-        return None
+        error_msg = str(e)
+        print(f"Error loading MRI model: {error_msg}")
+        return None, error_msg
 
 # Run prediction on the MRI image
 def predict_mri(model, image_path, label_map):
